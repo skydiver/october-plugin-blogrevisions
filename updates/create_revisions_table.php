@@ -16,6 +16,7 @@
                 $table->foreign('post_id' )->references('id')->on('rainlab_blog_posts')->onDelete('CASCADE');
                 $table->json   ('model'   );
                 $table->timestamps();
+                $table->unique(['revision', 'post_id']);
             });
 
         }
