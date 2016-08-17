@@ -23,16 +23,16 @@
         public function boot() {
 
             PostModel::extend(function ($model) {
+
+                $model->hasMany['revisions'] = ['Martin\BlogRevisions\Models\Revision'];
+
                 $model->bindEvent('model.beforeUpdate', function() use ($model) {
                     $revision = new Revision;
                     $revision->post_id = $model->id;
-                    $revision->model   = json_encode($model['original']);
+                    $revision->model   = $model['original'];
                     $revision->save();
                 });
-            });
 
-            PostModel::extend(function ($model) {
-                $model->hasMany['revisions'] = ['Martin\BlogRevisions\Models\Revision'];
             });
 
             PostsController::extendFormFields(function ($form, $model) {
