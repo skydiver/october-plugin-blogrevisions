@@ -1,0 +1,3 @@
+name           : martin.gitreposmanager::lang.controller.form.repos.title
+form           : $/martin/blogrevisions/models/revision/fields.yaml
+modelClass     : Martin\BlogRevisions\Models\Revision

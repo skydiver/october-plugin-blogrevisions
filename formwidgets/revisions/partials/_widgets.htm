@@ -1,0 +1,11 @@
+<ul>
+<?php foreach($revisions as $revision): ?>
+    <li>
+        <a href="javascript:;"
+        data-control="popup"
+        data-handler="onShow"
+        data-extra-data="revision_id:<?php echo $revision->id ?>"
+        class="btn btn-primary"><?php echo $revision->revision ?></a>
+    </li>
+<?php endforeach ?>
+</ul>

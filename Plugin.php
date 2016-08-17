@@ -40,13 +40,20 @@
                 $form->addSecondaryTabFields([
                     'blogrevisions' => [
                         'tab'         => 'revisions',
-                        'type'        => 'partial',
-                        'path'        => '$/martin/blogrevisions/partials/_revisions.htm',
-                        'emptyOption' => 'martin.blogrevisions::lang.form.empty'
+                        'type'        => 'Martin\BlogRevisions\FormWidgets\Revisions',
                     ]
                 ]);
             });
 
+        }
+
+        public function registerFormWidgets() {
+            return [
+                'Martin\BlogRevisions\FormWidgets\Revisions' => [
+                    'label' => 'Tag box field',
+                    'code'  => 'tagbox'
+                ]
+            ];
         }
 
     }

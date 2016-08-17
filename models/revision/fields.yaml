@@ -1,0 +1,7 @@
+fields:
+    revision:
+        label: sasas
+        span: left
+    created_at:
+        label: algo
+        span: right
