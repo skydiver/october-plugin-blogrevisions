@@ -31,6 +31,22 @@
                 });
             });
 
+            PostModel::extend(function ($model) {
+                $model->hasMany['revisions'] = ['Martin\BlogRevisions\Models\Revision'];
+            });
+
+            PostsController::extendFormFields(function ($form, $model) {
+                if (!$model instanceof PostModel) return;
+                $form->addSecondaryTabFields([
+                    'blogrevisions' => [
+                        'tab'         => 'revisions',
+                        'type'        => 'partial',
+                        'path'        => '$/martin/blogrevisions/partials/_revisions.htm',
+                        'emptyOption' => 'martin.blogrevisions::lang.form.empty'
+                    ]
+                ]);
+            });
+
         }
 
     }

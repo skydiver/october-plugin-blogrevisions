@@ -1,0 +1,5 @@
+<ul>
+<?php foreach($model->revisions as $revision): ?>
+    <li><?php echo $revision->model['created_at'] ?></li>
+<?php endforeach ?>
+</ul>

@@ -8,6 +8,10 @@
 
         public $table = 'rainlab_blog_revisions';
 
+        protected $casts = [
+            'model' => 'array',
+        ];
+
     }
 
 ?>
