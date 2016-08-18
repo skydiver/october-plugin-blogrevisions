@@ -45,18 +45,7 @@
         // }
 
 
-        public function getSaveValue($value) {
-            $tags = explode(",", implode(",", $value));
-            $ids = [];
-            foreach ($tags as $name) {
-                if (empty($name)) {
-                    continue;
-                }
-                $created = Tag::firstOrCreate(['name' => $name]);
-                $ids[] = $created->id;
-            }
-            return $ids;
-        }
+
 
     }
 
