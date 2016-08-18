@@ -1,7 +1,32 @@
 fields:
+
     revision:
-        label: sasas
-        span: left
+        label   : sasas
+        span    : left
+        disabled: true
+
     created_at:
-        label: algo
-        span: right
+        label   : algo
+        span    : right
+        disabled: true
+
+    view_user:
+        label   : algo
+        span    : left
+        disabled: true
+
+    view_name:
+        label   : algo
+        span    : right
+        disabled: true
+
+    view_title:
+        label   : title
+        disabled: true
+
+    view_content:
+        label     : content
+        type      : textarea
+        size      : huge
+        attributes:
+            readonly: readonly
