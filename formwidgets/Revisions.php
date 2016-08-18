@@ -10,8 +10,8 @@
 
         public function widgetDetails() {
             return [
-                'name'        => 'Tag Box Field',
-                'description' => 'Tagbox using AJAX'
+                'name'        => 'Blog Revisions',
+                'description' => 'Widget to display blog revisions'
             ];
         }
 

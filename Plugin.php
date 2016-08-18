@@ -51,8 +51,8 @@
 
                 $form->addSecondaryTabFields([
                     'blogrevisions' => [
-                        'tab'         => 'revisions',
-                        'type'        => 'Martin\BlogRevisions\FormWidgets\Revisions',
+                        'tab'  => 'martin.blogrevisions::lang.misc.tab_name',
+                        'type' => 'Martin\BlogRevisions\FormWidgets\Revisions',
                     ]
                 ]);
 
@@ -63,8 +63,8 @@
         public function registerFormWidgets() {
             return [
                 'Martin\BlogRevisions\FormWidgets\Revisions' => [
-                    'label' => 'Tag box field',
-                    'code'  => 'tagbox'
+                    'label' => 'Blog Revisions',
+                    'code'  => 'Widget to display blog revisions'
                 ]
             ];
         }
