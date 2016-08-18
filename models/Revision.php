@@ -23,10 +23,15 @@
         }
 
         public function afterFetch() {
-            $this->view_title    = $this->model['title'];
-            $this->view_content  = $this->model['content'];
-            $this->view_user     = $this->user->login;
-            $this->view_name     = $this->user->first_name . ' ' . $this->user->last_name;
+
+            $this->view_title   = $this->model['title'];
+            $this->view_content = $this->model['content'];
+
+            if($this->user) {
+                $this->view_user = $this->user->login;
+                $this->view_name = $this->user->first_name . ' ' . $this->user->last_name;
+            }
+
         }
 
     }
