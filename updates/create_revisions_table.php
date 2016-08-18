@@ -14,6 +14,8 @@
                 $table->integer('revision')->unsigned();
                 $table->integer('post_id' )->unsigned()->nullable();
                 $table->foreign('post_id' )->references('id')->on('rainlab_blog_posts')->onDelete('CASCADE');
+                $table->integer('user_id' )->unsigned()->nullable();
+                $table->foreign('user_id' )->references('id')->on('backend_users')->onDelete('CASCADE');
                 $table->json   ('model'   );
                 $table->timestamps();
                 $table->unique(['revision', 'post_id']);
