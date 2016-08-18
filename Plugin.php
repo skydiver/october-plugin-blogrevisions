@@ -2,6 +2,7 @@
 
     namespace Martin\BlogRevisions;
 
+    use BackendAuth;
     use System\Classes\PluginBase;
     use RainLab\Blog\Controllers\Posts as PostsController;
     use RainLab\Blog\Models\Post as PostModel;
@@ -24,11 +25,18 @@
 
             PostModel::extend(function ($model) {
 
-                $model->hasMany['revisions'] = ['Martin\BlogRevisions\Models\Revision'];
+                $model->hasMany = [
+                    'revisions' => ['Martin\BlogRevisions\Models\Revision', 'order' => 'revision desc']
+                ];
+
+                $model->bindEvent('model.beforeSave', function() use ($model) {
+                    unset($model->blogrevisions);
+                });
 
                 $model->bindEvent('model.beforeUpdate', function() use ($model) {
                     $revision = new Revision;
                     $revision->post_id = $model->id;
+                    $revision->user_id = BackendAuth::getUser()['id'];
                     $revision->model   = $model['original'];
                     $revision->save();
                 });
@@ -36,17 +44,29 @@
             });
 
             PostsController::extendFormFields(function ($form, $model) {
-                if (!$model instanceof PostModel) return;
+
+                if(!$model instanceof PostModel) { return; }
+
+                if(!$model->id) { return; }
+
                 $form->addSecondaryTabFields([
                     'blogrevisions' => [
-                        'tab'         => 'revisions',
-                        'type'        => 'partial',
-                        'path'        => '$/martin/blogrevisions/partials/_revisions.htm',
-                        'emptyOption' => 'martin.blogrevisions::lang.form.empty'
+                        'tab'  => 'martin.blogrevisions::lang.misc.tab_name',
+                        'type' => 'Martin\BlogRevisions\FormWidgets\Revisions',
                     ]
                 ]);
+
             });
 
+        }
+
+        public function registerFormWidgets() {
+            return [
+                'Martin\BlogRevisions\FormWidgets\Revisions' => [
+                    'label' => 'Blog Revisions',
+                    'code'  => 'Widget to display blog revisions'
+                ]
+            ];
         }
 
     }

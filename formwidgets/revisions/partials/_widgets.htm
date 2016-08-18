@@ -1,0 +1,19 @@
+<?php if(count($revisions) > 0): ?>
+
+    <?php foreach($revisions as $revision): ?>
+    <a href="javascript:;"
+        data-control="popup"
+        data-handler="onShow"
+        data-extra-data="revision_id:<?php echo $revision->id ?>"
+        class="btn btn-primary"><?= e(trans('martin.blogrevisions::lang.widgets.revisions.button')) ?><?php echo $revision->revision ?></a>
+    <?php endforeach ?>
+
+<?php else: ?>
+
+    <div class="callout fade in callout-info no-icon no-subheader">
+        <div class="content">
+            <p><?= e(trans('martin.blogrevisions::lang.widgets.revisions.empty')) ?></p>
+        </div>
+    </div>
+
+<?php endif ?>
