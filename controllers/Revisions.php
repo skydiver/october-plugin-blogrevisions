@@ -2,9 +2,8 @@
 
     namespace Martin\BlogRevisions\Controllers;
 
-    use Backend, BackendMenu, Flash, Lang;
+    use Backend;
     use Backend\Classes\Controller;
-    use System\Classes\SettingsManager;
     use Martin\BlogRevisions\Models\Revision;
 
     class Revisions extends Controller {
