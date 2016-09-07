@@ -7,6 +7,10 @@
             'description' => 'Blog posts history revisions',
         ],
 
+        'menuitem' => [
+            'revisions' => 'Revisions',
+        ],
+
         'controller' => [
             'revisions' => [
                 'title' => 'Revision'

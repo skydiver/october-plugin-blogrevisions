@@ -1,0 +1,10 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    post:
+        label   : <<< TRANSLATE >>> BLOG TITLE
+        type    : relation
+        nameFrom: title
+        disabled: disabled

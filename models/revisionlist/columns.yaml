@@ -1,0 +1,17 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    _post__id:
+        label: <<< TRANSLATE >>> POST ID
+        relation: post
+        select: id
+    _post__title:
+        label: <<< TRANSLATE >>> POST TITLE
+        relation: post
+        select: title
+    _post__published_at:
+        label: <<< TRANSLATE >>> POST PUBLISHED
+        relation: post
+        select: published_at

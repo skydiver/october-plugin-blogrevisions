@@ -1,0 +1,11 @@
+list            : ~/plugins/martin/blogrevisions/models/revisionlist/columns.yaml
+modelClass      : Martin\BlogRevisions\Models\Revision
+title           : <<< TRANSLATE >>>
+recordUrl       : martin/blogrevisions/revisionslist/update/:id
+noRecordsMessage: backend::lang.list.no_records
+recordsPerPage  : 20
+showSetup       : true
+showSorting     : true
+toolbar         :
+    search :
+        prompt: backend::lang.list.search_prompt

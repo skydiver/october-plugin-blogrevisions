@@ -1,0 +1,9 @@
+name           : <<< TRANSLATE >>> REVS
+form           : ~/plugins/martin/blogrevisions/models/revisionlist/fields.yaml
+modelClass     : Martin\BlogRevisions\Models\Revision
+defaultRedirect: martin/blogrevisions/revisionslist
+
+update:
+    title        : <<< TRANSLATE >>> REVISION
+    redirect     : martin/blogrevisions/revisionslist
+    redirectClose: martin/blogrevisions/revisionslist

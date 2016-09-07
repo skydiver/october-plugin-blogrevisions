@@ -24,6 +24,18 @@
 
         public function boot() {
 
+            \Event::listen('backend.menu.extendItems', function($manager) {
+                $manager->addSideMenuItems('RainLab.Blog', 'blog', [
+                    'revisions' => [
+                        'label'       => 'martin.blogrevisions::lang.menuitem.revisions',
+                        'icon'        => 'icon-history',
+                        'order'       => 500,
+                        'url'         => \Backend::url('martin/blogrevisions/revisionslist'),
+                        'permissions' => ['rainlab.blog.access_posts'],
+                    ]
+                ]);
+            });
+
             PostModel::extend(function ($model) {
 
                 $model->hasOne = [

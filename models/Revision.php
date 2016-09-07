@@ -18,6 +18,10 @@
             'revisionitems' => 'Martin\BlogRevisions\Models\RevisionItem'
         ];
 
+        public $belongsTo = [
+            'post' => 'RainLab\Blog\Models\Post'
+        ];
+
     }
 
 ?>
