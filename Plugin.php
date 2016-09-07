@@ -7,6 +7,7 @@
     use RainLab\Blog\Controllers\Posts as PostsController;
     use RainLab\Blog\Models\Post as PostModel;
     use Martin\BlogRevisions\Models\Revision;
+    use Martin\BlogRevisions\Models\RevisionItem;
 
     class Plugin extends PluginBase {
 
@@ -25,8 +26,8 @@
 
             PostModel::extend(function ($model) {
 
-                $model->hasMany = [
-                    'revisions' => ['Martin\BlogRevisions\Models\Revision', 'order' => 'revision desc']
+                $model->hasOne = [
+                    'revision' => ['Martin\BlogRevisions\Models\Revision']
                 ];
 
                 $model->bindEvent('model.beforeSave', function() use ($model) {
@@ -34,11 +35,17 @@
                 });
 
                 $model->bindEvent('model.beforeUpdate', function() use ($model) {
-                    $revision = new Revision;
-                    $revision->post_id = $model->id;
-                    $revision->user_id = BackendAuth::getUser()['id'];
-                    $revision->model   = $model['original'];
-                    $revision->save();
+
+                    $revision = Revision::firstOrCreate([
+                        'post_id' => $model->id
+                    ]);
+
+                    $item = new RevisionItem;
+                    $item->revision_id = $revision->id;
+                    $item->user_id     = BackendAuth::getUser()['id'];
+                    $item->model       = $model['original'];
+                    $item->save();
+
                 });
 
             });

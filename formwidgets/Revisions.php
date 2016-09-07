@@ -17,7 +17,7 @@
 
         public function onShow() {
             $pepe = new ControllerRevisions;
-            return $pepe->view(post('revision_id'));
+            return $pepe->view(post('revision_item_id'));
         }
 
         public function render() {
@@ -27,7 +27,7 @@
 
         public function prepareVars() {
             $this->vars['id']        = $this->model->id;
-            $this->vars['revisions'] = $this->model->revisions;
+            $this->vars['revisions'] = $this->model->revision->revisionitems;
         }
 
     }

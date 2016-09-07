@@ -8,6 +8,8 @@
 
         public $table = 'rainlab_blog_revisions';
 
+        protected $fillable = ['post_id'];
+
         protected $casts = [
             'model' => 'array',
         ];
@@ -16,21 +18,25 @@
             'user' => 'Backend\Models\User'
         ];
 
+        public $hasMany = [
+            'revisionitems' => 'Martin\BlogRevisions\Models\RevisionItem'
+        ];
+
         public function beforeCreate() {
-            $rev  = self::select('revision')->where('post_id', $this->model['id'])->orderBy('revision', 'desc')->first();
-            $next = ($rev) ? $rev->revision + 1 : 1;
-            $this->revision = $next;
+            // $rev  = self::select('revision')->where('post_id', $this->model['id'])->orderBy('revision', 'desc')->first();
+            // $next = ($rev) ? $rev->revision + 1 : 1;
+            // $this->revision = $next;
         }
 
         public function afterFetch() {
 
-            $this->view_title   = $this->model['title'];
-            $this->view_content = $this->model['content'];
-
-            if($this->user) {
-                $this->view_user = $this->user->login;
-                $this->view_name = $this->user->first_name . ' ' . $this->user->last_name;
-            }
+            // $this->view_title   = $this->model['title'];
+            // $this->view_content = $this->model['content'];
+            //
+            // if($this->user) {
+            //     $this->view_user = $this->user->login;
+            //     $this->view_name = $this->user->first_name . ' ' . $this->user->last_name;
+            // }
 
         }
 
