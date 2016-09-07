@@ -15,6 +15,8 @@
 
         'fields' => [
             'revision' => [
+                'title'        => 'Title',
+                'content'      => 'Content',
                 'view_user'    => 'Author',
                 'created_at'   => 'Modified Date',
                 'view_title'   => 'Title',
