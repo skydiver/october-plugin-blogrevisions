@@ -13,7 +13,11 @@
                 $table->increments('id')->unsigned();
                 $table->integer('post_id' )->unsigned()->nullable();
                 $table->foreign('post_id' )->references('id')->on('rainlab_blog_posts')->onDelete('set null');
-                $table->json   ('deleted_model')->nullable();
+                $table->json   ('deleted_model' )->nullable();
+                $table->integer('deleted_by'    )->unsigned()->nullable();
+                $table->foreign('deleted_by'    )->references('id')->on('backend_users')->onDelete('set null');
+                $table->string ('deleted_by_login',  10)->nullable();
+                $table->timestamp('deleted_model_at')->nullable();
                 $table->timestamps();
                 $table->unique(['post_id']);
             });

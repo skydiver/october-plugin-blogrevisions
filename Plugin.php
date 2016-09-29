@@ -52,7 +52,10 @@
 
                 $model->bindEvent('model.beforeDelete', function() use ($model) {
                     $revision = Revision::firstOrCreate(['post_id' => $model->id]);
-                    $revision->deleted_model = $model['original'];
+                    $revision->deleted_model    = $model['original'];
+                    $revision->deleted_by       = BackendAuth::getUser()['id'];
+                    $revision->deleted_by_login = BackendAuth::getUser()['login'];
+                    $revision->deleted_model_at = date('Y-m-d H:i:s');
                     $revision->save();
                 });
 
