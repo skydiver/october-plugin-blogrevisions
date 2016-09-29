@@ -17,7 +17,7 @@
         ];
 
         public function beforeCreate() {
-            $rev  = self::select('revision')->where('revision_id', $this->model['id'])->orderBy('revision', 'desc')->first();
+            $rev  = self::select('revision')->where('revision_id', $this->revision_id)->orderBy('revision', 'desc')->first();
             $next = ($rev) ? $rev->revision + 1 : 1;
             $this->revision = $next;
         }
