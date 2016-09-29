@@ -1,17 +1,16 @@
-# ===================================
-#  List Column Definitions
-# ===================================
-
 columns:
+
     _post__id:
-        label: <<< TRANSLATE >>> POST ID
+        label   : martin.blogrevisions::lang.lists.revisionslist._post__id
         relation: post
-        select: id
+        select  : id
+
     _post__title:
-        label: <<< TRANSLATE >>> POST TITLE
+        label   : martin.blogrevisions::lang.lists.revisionslist._post__title
         relation: post
-        select: title
+        select  : title
+
     _post__published_at:
-        label: <<< TRANSLATE >>> POST PUBLISHED
+        label   : martin.blogrevisions::lang.lists.revisionslist._post__published_at
         relation: post
-        select: published_at
+        select  : published_at

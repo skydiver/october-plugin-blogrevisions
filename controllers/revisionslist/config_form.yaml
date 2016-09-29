@@ -1,9 +1,9 @@
-name           : <<< TRANSLATE >>> REVS
+name           : martin.blogrevisions::lang.lists.revisionslist_items.bc_sec_title
 form           : ~/plugins/martin/blogrevisions/models/revisionlist/fields.yaml
 modelClass     : Martin\BlogRevisions\Models\Revision
 defaultRedirect: martin/blogrevisions/revisionslist
 
 update:
-    title        : <<< TRANSLATE >>> REVISION
+    title        : martin.blogrevisions::lang.lists.revisionslist_items.bc_sec_title
     redirect     : martin/blogrevisions/revisionslist
     redirectClose: martin/blogrevisions/revisionslist

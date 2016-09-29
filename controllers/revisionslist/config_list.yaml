@@ -1,6 +1,6 @@
 list            : ~/plugins/martin/blogrevisions/models/revisionlist/columns.yaml
 modelClass      : Martin\BlogRevisions\Models\Revision
-title           : <<< TRANSLATE >>>
+title           : martin.blogrevisions::lang.lists.revisionslist.page_title
 recordUrl       : martin/blogrevisions/revisionslist/update/:id
 noRecordsMessage: backend::lang.list.no_records
 recordsPerPage  : 20

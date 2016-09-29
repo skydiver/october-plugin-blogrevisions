@@ -4,7 +4,7 @@
 
 fields:
     post:
-        label   : <<< TRANSLATE >>> BLOG TITLE
+        label   : martin.blogrevisions::lang.lists.revisionslist_items.post_title
         type    : relation
         nameFrom: title
         disabled: disabled

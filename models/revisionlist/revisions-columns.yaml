@@ -3,7 +3,13 @@
 # ===================================
 
 columns:
-    id:
-        label: <<< TRANSLATE >>> REVISION ID
     revision:
-        label: <<< TRANSLATE >>> REVISION REVISION
+        label: martin.blogrevisions::lang.lists.revisionslist_items.revision
+    view_title:
+        label: martin.blogrevisions::lang.lists.revisionslist_items.view_title
+    user_id:
+        label: martin.blogrevisions::lang.lists.revisionslist_items.user_id
+        relation: user
+        select  : login
+    updated_at:
+        label: martin.blogrevisions::lang.lists.revisionslist_items.updated_at

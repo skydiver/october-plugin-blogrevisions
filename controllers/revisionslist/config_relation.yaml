@@ -1,7 +1,7 @@
 revisionitems:
-    label:  <<< TRANSLATE >>>
-    view:
+    label :  martin.blogrevisions::lang.fields.revisionslist_items.modal_title
+    view  :
         list: ~/plugins/martin/blogrevisions/models/revisionlist/revisions-columns.yaml
     manage:
-        form: ~/plugins/martin/blogrevisions/models/revisionlist/revisions-fields.yaml
+        form   : ~/plugins/martin/blogrevisions/models/revisionlist/revisions-fields.yaml
         context: create
