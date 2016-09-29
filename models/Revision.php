@@ -11,7 +11,7 @@
         protected $fillable = ['post_id'];
 
         protected $casts = [
-            'model' => 'array',
+            'deleted_model' => 'array'
         ];
 
         public $hasMany = [

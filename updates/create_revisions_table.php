@@ -12,7 +12,8 @@
             Schema::create('rainlab_blog_revisions', function($table) {
                 $table->increments('id')->unsigned();
                 $table->integer('post_id' )->unsigned()->nullable();
-                $table->foreign('post_id' )->references('id')->on('rainlab_blog_posts')->onDelete('CASCADE');
+                $table->foreign('post_id' )->references('id')->on('rainlab_blog_posts')->onDelete('set null');
+                $table->json   ('deleted_model')->nullable();
                 $table->timestamps();
                 $table->unique(['post_id']);
             });

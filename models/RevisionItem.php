@@ -9,7 +9,7 @@
         public $table = 'rainlab_blog_revisions_items';
 
         protected $casts = [
-            'model' => 'array',
+            'model' => 'array'
         ];
 
         public $belongsTo = [

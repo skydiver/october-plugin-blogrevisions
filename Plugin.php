@@ -46,18 +46,23 @@
                     unset($model->blogrevisions);
                 });
 
+                $model->bindEvent('model.afterSave', function() use ($model) {
+                    $revision = Revision::firstOrCreate(['post_id' => $model->id]);
+                });
+
+                $model->bindEvent('model.beforeDelete', function() use ($model) {
+                    $revision = Revision::firstOrCreate(['post_id' => $model->id]);
+                    $revision->deleted_model = $model['original'];
+                    $revision->save();
+                });
+
                 $model->bindEvent('model.beforeUpdate', function() use ($model) {
-
-                    $revision = Revision::firstOrCreate([
-                        'post_id' => $model->id
-                    ]);
-
+                    $revision = Revision::firstOrCreate(['post_id' => $model->id]);
                     $item = new RevisionItem;
                     $item->revision_id = $revision->id;
                     $item->user_id     = BackendAuth::getUser()['id'];
                     $item->model       = $model['original'];
                     $item->save();
-
                 });
 
             });
