@@ -26,7 +26,7 @@
         }
 
         public function listExtendQuery($query) {
-            $query->with('post')->groupBy('post_id');
+            $query->with('post');
         }
 
     }

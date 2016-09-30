@@ -27,7 +27,7 @@
 
         public function prepareVars() {
             $this->vars['id']        = $this->model->id;
-            $this->vars['revisions'] = isset($this->model->revision->revisionitems) ? $this->model->revision->revisionitems : null;
+            $this->vars['revisions'] = ($this->model->revision->revisionitems) ? $this->model->revision->revisionitems : null;
         }
 
     }
