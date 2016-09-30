@@ -4,7 +4,5 @@
 
 fields:
     post:
-        label   : martin.blogrevisions::lang.lists.revisionslist_items.post_title
-        type    : relation
-        nameFrom: title
-        disabled: disabled
+        type    : partial
+        path    : ~/plugins/martin/blogrevisions/models/revisionlist/_post_title_field.htm

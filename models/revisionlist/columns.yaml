@@ -2,11 +2,15 @@ columns:
 
     _post__id:
         label   : martin.blogrevisions::lang.lists.revisionslist._post__id
+        type    : partial
+        path    : ~/plugins/martin/blogrevisions/models/revisionlist/_post_id_column.htm
         relation: post
         select  : id
 
     _post__title:
         label   : martin.blogrevisions::lang.lists.revisionslist._post__title
+        type    : partial
+        path    : ~/plugins/martin/blogrevisions/models/revisionlist/_post__title_column.htm
         relation: post
         select  : title
 

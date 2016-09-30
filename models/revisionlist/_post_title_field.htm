@@ -1,0 +1,5 @@
+<?php if($model->post): ?>
+    <h2><?php echo $model->post->title ?></h2>
+<?php else: ?>
+    <h2 class="text-danger"><?print_r($model->deleted_model['title'])?></h2>
+<?php endif ?>
